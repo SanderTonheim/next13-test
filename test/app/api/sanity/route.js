@@ -28,7 +28,6 @@ export async function POST(req) {
 		// })
 		const slug = await req.json()
 		console.log(slug.slug)
-		console.log(cmsData)
 		// revalidatePath(`/medlem`)
 		// revalidatePath(`/medlem/${slug.slug}`)
 		return new Response(console.log(' slug that got updated', slug.slug))
