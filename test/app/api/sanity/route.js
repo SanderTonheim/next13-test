@@ -27,7 +27,7 @@ export async function POST(req) {
 			return index.saveObjects(obj)
 		})
 		const slug = await req.json()
-		console.log(slug.slug)
+		console.log(slug)
 		revalidatePath(`/medlem`)
 		revalidatePath(`/medlem/${slug.slug}`)
 		return new Response(console.log(' slug that got updated', slug.slug))
