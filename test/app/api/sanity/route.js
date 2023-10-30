@@ -4,7 +4,7 @@ import { revalidatePath } from 'next/cache'
 import algoliasearch from 'algoliasearch'
 export async function POST(req) {
 	const client = algoliasearch('CL6X1N5OU8', '27368288330117fe0ba275850c47d3a6')
-	const index = client.initIndex('test_members')
+	const index = client.initIndex('members')
 	try {
 		const cmsData = await Client.fetch(groq`*[_type == "medlem"]{
 			name, 

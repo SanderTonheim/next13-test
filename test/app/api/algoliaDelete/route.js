@@ -3,7 +3,7 @@ import { revalidatePath } from 'next/cache'
 
 export async function POST(request) {
 	const client = algoliasearch('CL6X1N5OU8', '27368288330117fe0ba275850c47d3a6')
-	const index = client.initIndex('test_members')
+	const index = client.initIndex('members')
 	try {
 		const { slug } = await request.json()
 		index.deleteObject(slug).then(() => {
