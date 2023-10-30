@@ -9,7 +9,7 @@ import memberIcon from '@/assets/memberIcon.svg'
 import Image from 'next/image'
 
 function TagsFilter() {
-	const searchClient = algoliasearch('BC0Z4HS7B1', '7c31f7f4e01eaf32e1ce709e3ec8dd4c')
+	const searchClient = algoliasearch('CL6X1N5OU8', '27368288330117fe0ba275850c47d3a6')
 
 	const [category, setCategory] = useState(false)
 	const [certification, setCertification] = useState(false)

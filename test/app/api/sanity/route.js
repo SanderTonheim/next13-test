@@ -3,8 +3,8 @@ import groq from 'groq'
 import { revalidatePath } from 'next/cache'
 import algoliasearch from 'algoliasearch'
 export async function POST(req) {
-	const client = algoliasearch('BC0Z4HS7B1', '7c31f7f4e01eaf32e1ce709e3ec8dd4c')
-	const index = client.initIndex('Members')
+	const client = algoliasearch('CL6X1N5OU8', '27368288330117fe0ba275850c47d3a6')
+	const index = client.initIndex('test_members')
 	try {
 		const cmsData = await Client.fetch(groq`*[_type == "medlem"]{
 			name, 

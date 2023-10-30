@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 export default function Search() {
 	const [value, setValue] = useState(0)
-	const searchClient = algoliasearch('BC0Z4HS7B1', '7c31f7f4e01eaf32e1ce709e3ec8dd4c')
+	const searchClient = algoliasearch('CL6X1N5OU8', '27368288330117fe0ba275850c47d3a6')
 	const Hit = ({ hit }) => <Link href={'/medlem/' + hit.slug.toLowerCase().toString().replace(/\s/g, '-')}>{hit.name}</Link>
 
 	const onStateChange = (e) => {
