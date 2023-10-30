@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1 {
+	font-size: 28px;
+}
+
+h2 {
+	font-size: 24px;
+}
+
+.SEARCH {
+	width: 100%;
+}
+.SEARCH input {
+	width: 100%;
+	font-size: 1rem;
+	width: 100%;
+	padding: 0.7rem 1rem;
+	margin: 0;
+	border: 2px solid #3f9094;
+	border-radius: 1rem 1rem 0 0;
+}
+
+.SEARCH button {
+	display: none;
+}
+
+.HITS {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	position: relative;
+}
+
+.HITS ol {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	max-width: 1280px;
+	color: white;
+	font: bold;
+	/* From https://css.glass */
+	background: rgba(255, 255, 255, 0.32);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(13.5px);
+	-webkit-backdrop-filter: blur(13.5px);
+	list-style-type: none;
+	gap: 0.5rem;
+	padding: 1rem;
+	position: absolute;
+	z-index: 20;
+	border-radius: 0px 0px 10px 10px;
+	/* From https://css.glass */
+}
+.HITS ol li > * {
+	/* backdrop-filter: blur(0px);
+	-webkit-backdrop-filter: blur(0px); */
+	z-index: 100;
+	color: black;
+	align-items: flex-start;
+}
+
+.ais-RefinementList li label {
+	display: flex;
+	gap: 0.5rem;
+	backdrop-filter: blur(0px);
+}
+
+@media screen and (min-width: 768px) {
+	.hits-list-container {
+		margin: 0 auto;
+	}
+
+	.hits-list-container ol li {
+		width: 320px;
+		margin: 0 auto;
+	}
+	.hits-list-container ol {
+		max-width: fit-content;
+		padding: 1rem 0;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		justify-content: space-between;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	h1 {
+		font-size: 40px;
+		font-weight: 500;
+	}
+
+	h2 {
+		font-size: 24px;
+		font-weight: 600;
+	}
+	.ais-Hits {
+		justify-content: center;
+	}
+
+	.ais-Hits-list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		max-width: 1280px;
+	}
+
+	.ais-Hits-item {
+		flex-basis: 33%;
+		display: flex;
+		justify-content: flex-start;
+	}
+
+	.ais-Hits-item section {
+		width: 20rem;
+	}
+
+	.hits-list-container {
+		margin: 0 auto;
+		max-width: 1280px;
+		width: 100%;
+	}
+	.hits-list-container ol {
+		max-width: 100%;
+		padding: 1rem 0;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
