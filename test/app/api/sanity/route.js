@@ -27,7 +27,7 @@ export async function POST(req) {
 		// 	return index.saveObjects(obj)
 		// })
 		const slug = await req.json()
-		console.log(slug)
+		console.log(slug.slug)
 		console.log(cmsData)
 		// revalidatePath(`/medlem`)
 		// revalidatePath(`/medlem/${slug.slug}`)
