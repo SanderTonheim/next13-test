@@ -5,7 +5,6 @@ import algoliasearch from 'algoliasearch/lite'
 /* --------------------------------- filter --------------------------------- */
 import { InstantSearch, Hits, RefinementList } from 'react-instantsearch'
 import { useState } from 'react'
-import memberIcon from '@/assets/memberIcon.svg'
 import Image from 'next/image'
 
 function TagsFilter() {
@@ -52,7 +51,7 @@ function TagsFilter() {
 
 	return (
 		<InstantSearch
-			indexName='Members'
+			indexName='test_members'
 			searchClient={searchClient}>
 			<div className='flex flex-col gap-y-5 p-4 md:flex-row gap-x-5 md:max-w-7xl md:mx-auto md:w-full'>
 				<div className='h-10 flex flex-col w-full'>

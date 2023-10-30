@@ -14,7 +14,7 @@ export default function Search() {
 	}
 	return (
 		<InstantSearch
-			indexName={'Members'}
+			indexName={'test_members'}
 			searchClient={searchClient}
 			onStateChange={onStateChange}>
 			<section className='w-full '>

@@ -2,7 +2,6 @@ import Title from '@/components/title'
 import MainSponsors from '@/components/mainSponsor'
 import SecondarySponsors from '@/components/secondarySponsors'
 import Link from 'next/link'
-import Newsletter from '@/components/newsletter'
 
 export default function Home() {
 	return (
