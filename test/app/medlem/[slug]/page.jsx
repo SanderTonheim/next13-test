@@ -13,7 +13,6 @@ import CompanyMap from '@/components/map'
 import MemeberUpdateButton from '@/components/memeberUpdateButton'
 import Error from '@/components/404'
 import { PortableText } from '@portabletext/react'
-import Nossr from '@/components/nossr'
 import dynamic from 'next/dynamic'
 
 export default async function ProfilePage({ params }) {
@@ -41,7 +40,6 @@ export default async function ProfilePage({ params }) {
 		},
 	}
 
-	const ComponentC = dynamic(() => import('../../../components/youtubeVideo'), { ssr: false })
 	return (
 		<>
 			<section className='flex flex-col gap-6 px-4 md:py-16 md:px-12 lg:gap-[5rem]  xl:w-full xl:max-w-7xl xl:mx-auto'>
@@ -81,7 +79,6 @@ export default async function ProfilePage({ params }) {
 						)}
 					</section>
 				</div>
-				<Nossr>{post.video?.url == null ? ' ' : <ComponentC video={post.video?.url} />}</Nossr>
 				<div className='flex justify-center'>
 					<MemeberUpdateButton />
 				</div>
