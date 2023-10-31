@@ -13,7 +13,6 @@ import CompanyMap from '@/components/map'
 import MemeberUpdateButton from '@/components/memeberUpdateButton'
 import Error from '@/components/404'
 import { PortableText } from '@portabletext/react'
-import dynamic from 'next/dynamic'
 
 export default async function ProfilePage({ params }) {
 	const { slug } = params

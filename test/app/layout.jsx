@@ -16,11 +16,12 @@ export default function RootLayout({ children }) {
 	return (
 		<html
 			lang='no'
-			className={inter.className}>
+			className={inter.className}
+			>
 			<body className='flex flex-col justify-between min-h-screen'>
-				{/* <Navbar /> */}
+				<Navbar />
 				<main className='flex flex-1 flex-col'>{children}</main>
-				{/* <Footer /> */}
+				<Footer />
 			</body>
 		</html>
 	)

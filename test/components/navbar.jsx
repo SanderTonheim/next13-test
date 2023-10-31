@@ -1,9 +1,9 @@
 'use client'
 
 import Image from 'next/image'
-// import logo from '@/assets/logo.png'
+import logo from '@/assets/logo.png'
 import { useEffect, useRef, useState } from 'react'
-// import menuIcon from '@/assets/menu-icon.png'
+import menuIcon from '@/assets/menu-icon.png'
 import Link from 'next/link'
 
 export default function Navbar() {
