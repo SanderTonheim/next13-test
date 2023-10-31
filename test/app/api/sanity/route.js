@@ -26,7 +26,7 @@ export async function POST(req) {
 				connections: item.connections,
 				slug: item.slug,
 			}
-			return index.saveObjects(obj)
+			return index.saveObject(obj)
 		})
 
 		// console.log(slug.slug)
