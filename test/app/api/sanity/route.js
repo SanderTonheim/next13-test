@@ -4,7 +4,7 @@ import { revalidatePath } from 'next/cache'
 import algoliasearch from 'algoliasearch'
 export async function POST(req) {
 	const client = algoliasearch('CL6X1N5OU8', '27368288330117fe0ba275850c47d3a6')
-	const index = client.initIndex('test')
+	const index = client.initIndex('Members')
 	try {
 		const cmsData = await Client.fetch(groq`*[_type == "medlem"]{
 			name, 
@@ -24,12 +24,12 @@ export async function POST(req) {
 				connections: item.connections,
 				slug: item.slug,
 			}
-			return index.saveObject(obj)
+			return index.saveObjects(obj)
 		})
 		const slug = await req.json()
 		console.log(slug.slug)
-		// revalidatePath(`/medlem`)
-		// revalidatePath(`/medlem/${slug.slug}`)
+		revalidatePath(`/medlem`)
+		revalidatePath(`/medlem/${slug.slug}`)
 		return new Response(console.log(' slug that got updated', slug.slug))
 	} catch (err) {
 		return new Response(console.log(err))
