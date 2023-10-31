@@ -17,7 +17,7 @@ export async function POST(req) {
 			contactPerson,
 			"slug":slug.current,
 		}`)
-		cmsData.map((item) => {
+		const objects = cmsData.map((item) => {
 			const obj = {
 				objectID: item._id,
 				name: item.name,
@@ -26,9 +26,9 @@ export async function POST(req) {
 				connections: item.connections,
 				slug: item.slug,
 			}
-			return index.saveObject(obj)
+			return obj
 		})
-
+		index.saveObjects(objects).then(console.log(objects))
 		// console.log(slug.slug)
 		// revalidatePath(`/medlem`)
 		// revalidatePath(`/medlem/${slug.slug}`)
