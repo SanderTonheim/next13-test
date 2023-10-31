@@ -19,7 +19,7 @@ export async function POST(req) {
 		}`)
 		index.saveObject({
 			objectID: cmsData._id,
-			Company: 'Barninger',
+			Company: cmsData.name,
 			city: 'New York',
 		})
 		// console.log(slug.slug)
