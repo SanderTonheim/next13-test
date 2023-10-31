@@ -6,8 +6,9 @@ import { log } from 'console'
 export async function POST(req) {
 	const client = algoliasearch('CL6X1N5OU8', 'b5cf6abddecca4efc7e0b6234e818950')
 	const index = client.initIndex('Members')
+	const { slug } = await req.json()
 	try {
-		const cmsData = await Client.fetch(groq`*[_type == "medlem"]{
+		const cmsData = await Client.fetch(groq`*[_type == "medlem" && slug.current == '${slug}'][0]]{
 			name, 
 			_id,
 			certifications[]->{name},
@@ -16,9 +17,8 @@ export async function POST(req) {
 			contactPerson,
 			"slug":slug.current,
 		}`)
-		const { slug } = await req.json()
 		const filterData = cmsData.map((item) => {
-			return console.log(item._id)
+			return console.log(item.name)
 			// objectID: item._id,
 			// name: item.name,
 			// tags: item.tag,
