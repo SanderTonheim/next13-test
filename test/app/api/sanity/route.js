@@ -19,11 +19,8 @@ export async function POST(req) {
 		}`)
 		index.saveObject({
 			objectID: cmsData._id,
-			name: cmsData.name,
-			tags: cmsData.tag,
-			certifications: cmsData.certifications,
-			connections: cmsData.connections,
-			slug: cmsData.slug,
+			Company: 'Barninger',
+			city: 'New York',
 		})
 		// console.log(slug.slug)
 		// revalidatePath(`/medlem`)
