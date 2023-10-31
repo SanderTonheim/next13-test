@@ -8,7 +8,8 @@ export async function POST(req) {
 	const index = client.initIndex('Members')
 	try {
 		const { slug } = await req.json()
-		const cmsData = await Client.fetch(groq`*[_type == "medlem"]{
+		console.log(slug)
+		const cmsData = await Client.fetch(groq`*[_type == "medlem" && slug.current == '${slug}'][0]{
 			name, 
 			_id,
 			certifications[]->{name},
@@ -17,16 +18,14 @@ export async function POST(req) {
 			contactPerson,
 			"slug":slug.current,
 		}`)
-		cmsData.map((item) => {
-			index.saveObject({
-				objectID: item._id,
-				name: item.name,
-				tags: item.tag,
-				certifications: item.certifications,
-				connections: item.connections,
-				slug: item.slug,
-			})
-			return
+		console.log(cmsData)
+		index.saveObject({
+			objectID: item._id,
+			name: item.name,
+			tags: item.tag,
+			certifications: item.certifications,
+			connections: item.connections,
+			slug: item.slug,
 		})
 
 		// console.log(slug.slug)
