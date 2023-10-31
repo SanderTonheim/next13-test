@@ -2,6 +2,7 @@ import { Client } from '@/lib/client'
 import groq from 'groq'
 import { revalidatePath } from 'next/cache'
 import algoliasearch from 'algoliasearch'
+import { log } from 'console'
 export async function POST(req) {
 	const client = algoliasearch('CL6X1N5OU8', 'b5cf6abddecca4efc7e0b6234e818950')
 	const index = client.initIndex('Members')
@@ -15,22 +16,22 @@ export async function POST(req) {
 			contactPerson,
 			"slug":slug.current,
 		}`)
-		const slug = await req.json()
-		// cmsData.map((item) => {
-		// 	const obj = {
-		// 		objectID: item._id,
-		// 		name: item.name,
-		// 		tags: item.tag,
-		// 		certifications: item.certifications,
-		// 		connections: item.connections,
-		// 		slug: item.slug,
-		// 	}
-		// 	return index.saveObjects(obj)
+		const { slug } = await req.json()
+		const filterData = cmsData.map((item) => {
+			return log(item._id)
+			// objectID: item._id,
+			// name: item.name,
+			// tags: item.tag,
+			// certifications: item.certifications,
+			// connections: item.connections,
+			// slug: item.slug,
+		})
+		// return index.saveObjects(obj)
 		// })
 		// console.log(slug.slug)
 		// revalidatePath(`/medlem`)
 		// revalidatePath(`/medlem/${slug.slug}`)
-		return new Response(console.log('slug:', slug, 'cmsData:', cmsData))
+		return new Response(console.log('slug:', slug, 'data:', filterData))
 	} catch (err) {
 		return new Response(console.log(err))
 	}
