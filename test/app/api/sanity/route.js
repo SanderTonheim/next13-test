@@ -17,15 +17,10 @@ export async function POST(req) {
 			contactPerson,
 			"slug":slug.current,
 		}`)
-		const obj = {
+		index.saveObject({
 			objectID: cmsData._id,
-			name: cmsData.name,
-			tags: cmsData.tag,
-			certifications: cmsData.certifications,
-			connections: cmsData.connections,
-			slug: cmsData.slug,
-		}
-		index.saveObjects(obj)
+			Company: cmsData.name,
+		})
 		// console.log(slug.slug)
 		// revalidatePath(`/medlem`)
 		// revalidatePath(`/medlem/${slug.slug}`)
