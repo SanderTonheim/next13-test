@@ -8,7 +8,6 @@ export async function POST(req) {
 	const index = client.initIndex('Members')
 	try {
 		const { slug } = await req.json()
-		console.log(slug)
 		const cmsData = await Client.fetch(groq`*[_type == "medlem" && slug.current == '${slug}'][0]{
 			name, 
 			_id,
@@ -18,7 +17,6 @@ export async function POST(req) {
 			contactPerson,
 			"slug":slug.current,
 		}`)
-		console.log(cmsData)
 		index.saveObject({
 			objectID: cmsData._id,
 			name: cmsData.name,
@@ -27,7 +25,7 @@ export async function POST(req) {
 			connections: cmsData.connections,
 			slug: cmsData.slug,
 		})
-
+		// console.log(slug.slug)
 		// revalidatePath(`/medlem`)
 		// revalidatePath(`/medlem/${slug.slug}`)
 		return new Response(console.log(slug))
