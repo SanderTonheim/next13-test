@@ -15,22 +15,22 @@ export async function POST(req) {
 			contactPerson,
 			"slug":slug.current,
 		}`)
-		cmsData.map((item) => {
-			const obj = {
-				objectID: item._id,
-				name: item.name,
-				tags: item.tag,
-				certifications: item.certifications,
-				connections: item.connections,
-				slug: item.slug,
-			}
-			return index.saveObjects(obj)
-		})
 		const slug = await req.json()
-		console.log(slug.slug)
-		revalidatePath(`/medlem`)
-		revalidatePath(`/medlem/${slug.slug}`)
-		return new Response(console.log(' slug that got updated', slug.slug))
+		// cmsData.map((item) => {
+		// 	const obj = {
+		// 		objectID: item._id,
+		// 		name: item.name,
+		// 		tags: item.tag,
+		// 		certifications: item.certifications,
+		// 		connections: item.connections,
+		// 		slug: item.slug,
+		// 	}
+		// 	return index.saveObjects(obj)
+		// })
+		// console.log(slug.slug)
+		// revalidatePath(`/medlem`)
+		// revalidatePath(`/medlem/${slug.slug}`)
+		return new Response(console.log('slug:', slug, 'cmsData:', cmsData))
 	} catch (err) {
 		return new Response(console.log(err))
 	}
