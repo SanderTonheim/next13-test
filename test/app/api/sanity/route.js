@@ -17,15 +17,16 @@ export async function POST(req) {
 		// 	contactPerson,
 		// 	"slug":slug.current,
 		// }`)
-		index.saveObject({
+		const obj = {
 			objectID: body._id,
 			name: body.name,
 			slug: body.slug,
-		})
+		}
+		index.saveObject(obj)
 		// console.log(slug.slug)
-		revalidatePath(`/medlem`)
+		// revalidatePath(`/medlem`)
 		// revalidatePath(`/medlem/${slug.slug}`)
-		return new Response(console.log(body))
+		return new Response(console.log(obj))
 	} catch (err) {
 		return new Response(console.log(err))
 	}
