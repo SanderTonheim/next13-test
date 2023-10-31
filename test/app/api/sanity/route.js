@@ -20,15 +20,14 @@ export async function POST(req) {
 		}`)
 		console.log(cmsData)
 		index.saveObject({
-			objectID: item._id,
-			name: item.name,
-			tags: item.tag,
-			certifications: item.certifications,
-			connections: item.connections,
-			slug: item.slug,
+			objectID: cmsData._id,
+			name: cmsData.name,
+			tags: cmsData.tag,
+			certifications: cmsData.certifications,
+			connections: cmsData.connections,
+			slug: cmsData.slug,
 		})
 
-		// console.log(slug.slug)
 		// revalidatePath(`/medlem`)
 		// revalidatePath(`/medlem/${slug.slug}`)
 		return new Response(console.log(slug))
