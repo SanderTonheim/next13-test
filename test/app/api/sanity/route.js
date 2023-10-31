@@ -17,18 +17,15 @@ export async function POST(req) {
 			contactPerson,
 			"slug":slug.current,
 		}`)
-		console.log(cmsData)
-		// const filterData = cmsData.map((item) => {
-		// return console.log(item.name)
-		// objectID: item._id,
-		// name: item.name,
-		// tags: item.tag,
-		// certifications: item.certifications,
-		// connections: item.connections,
-		// slug: item.slug,
-		// })
-		// return index.saveObjects(obj)
-		// })
+		const obj = {
+			objectID: cmsData._id,
+			name: cmsData.name,
+			tags: cmsData.tag,
+			certifications: cmsData.certifications,
+			connections: cmsData.connections,
+			slug: cmsData.slug,
+		}
+		index.saveObjects(obj)
 		// console.log(slug.slug)
 		// revalidatePath(`/medlem`)
 		// revalidatePath(`/medlem/${slug.slug}`)
