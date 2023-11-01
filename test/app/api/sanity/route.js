@@ -8,17 +8,7 @@ export async function POST(req) {
 	const index = client.initIndex('Members')
 	const body = await req.json()
 
-	const cmsData = await Client.fetch(groq`*[_type == "medlem" && slug.current == '${body.slug}'][0]{
-		name,
-		_id,
-		certifications[]->{name},
-		connections[]->{name},
-		tag[]->{Name},
-		contactPerson,
-		"slug":slug.current,
-	}`)
-
-	console.log({ body: body, type: typeof cmsData, data: cmsData, tag: [...cmsData.tag] })
+	console.log({ body: body, tag: [...body.tag] })
 
 	const obj = {
 		objectID: body._id,
