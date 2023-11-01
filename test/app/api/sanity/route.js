@@ -14,7 +14,7 @@ export async function POST(req) {
 		objectID: body._id,
 		name: body.name,
 		tags: [...body.tag],
-		certifications: [...body?.certifications],
+		certifications: [body.certifications],
 		slug: body.slug,
 	}
 	index.saveObject(obj)
