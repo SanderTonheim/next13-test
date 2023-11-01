@@ -28,5 +28,5 @@ export async function POST(req) {
 	// revalidatePath(`/medlem`)
 	// revalidatePath(`/medlem/${slug.slug}`)
 	// return new Response(console.log(obj))
-	return Response(console.log(body))
+	return new Response(console.log(body))
 }
