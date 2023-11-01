@@ -19,7 +19,7 @@ export async function POST(req) {
 	}
 	index.saveObject(obj)
 	// revalidatePath(`/medlem`)
-	revalidatePath(`/medlem/${body.slug}`)
+	// revalidatePath(`/medlem/${body.slug}`)
 	// return new Response(console.log(obj))
 	return new Response(console.log(body))
 }
