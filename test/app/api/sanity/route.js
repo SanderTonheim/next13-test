@@ -8,7 +8,7 @@ export async function POST(req) {
 	const index = client.initIndex('Members')
 	const body = await req.json()
 
-	const cmsData = await Client.fetch(groq`*[_type == "medlem" && slug.current == '${slug}'][0]{
+	const cmsData = await Client.fetch(groq`*[_type == "medlem" && slug.current == '${body.slug}'][0]{
 		name,
 		_id,
 		certifications[]->{name},
