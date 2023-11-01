@@ -18,7 +18,7 @@ export async function POST(req) {
 		"slug":slug.current,
 	}`)
 
-	console.log({ body: body, type: typeof cmsData, data: cmsData, tag: { ...cmsData.tag } })
+	console.log({ body: body, type: typeof cmsData, data: cmsData, tag: [...cmsData.tag] })
 
 	const obj = {
 		objectID: body._id,
