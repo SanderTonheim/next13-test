@@ -13,12 +13,13 @@ export async function POST(req) {
 	const obj = {
 		objectID: body._id,
 		name: body.name,
+		tags: [...body.tag],
+		certifications: [...body.certifications],
 		slug: body.slug,
 	}
 	index.saveObject(obj)
-	// console.log(slug.slug)
 	// revalidatePath(`/medlem`)
-	// revalidatePath(`/medlem/${slug.slug}`)
+	revalidatePath(`/medlem/${body.slug}`)
 	// return new Response(console.log(obj))
 	return new Response(console.log(body))
 }
