@@ -8,10 +8,10 @@ export async function POST(req) {
 	const index = client.initIndex('Members')
 	const body = await req.json()
 
-	if (!body.tag > 0) {
-		console.log('Finner ikke tags')
-	} else {
+	if (body.tag > 0) {
 		console.log([...body.tag])
+	} else {
+		console.log('Finner ikke tags')
 	}
 
 	index.saveObject({ objectID: body._id, name: body.name, slug: body.slug })
