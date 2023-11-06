@@ -8,7 +8,7 @@ export async function POST(req) {
 	const index = client.initIndex('Members')
 	const body = await req.json()
 
-	console.log({ body: body, tag: body.tag })
+	console.log({ body: body, tag: [{ ...body.tag }] })
 
 	index.saveObject({ objectID: body._id, name: body.name, slug: body.slug })
 	revalidatePath(`/medlem`)
