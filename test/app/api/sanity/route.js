@@ -9,14 +9,14 @@ export async function POST(req) {
 	const body = await req.json()
 	const tags = body.tag
 	if (tags?.length > 0) {
-		console.log('det er tags')
+		return new Response(console.log('det er tags'))
 	} else {
-		console.log('ikke tags')
+		return new Response(console.log('ikke tags'))
 	}
 
 	// index.saveObject({ objectID: body._id, name: body.name, slug: body.slug })
 	// revalidatePath(`/medlem`)
 	// revalidatePath(`/medlem/${body.slug}`)
 	// return new Response(console.log(obj))
-	return new Response(console.log('ok'))
+	// return new Response(console.log('ok'))
 }
