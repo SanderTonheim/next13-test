@@ -7,16 +7,16 @@ export async function POST(req) {
 	const client = algoliasearch('CL6X1N5OU8', 'b5cf6abddecca4efc7e0b6234e818950')
 	const index = client.initIndex('Members')
 	const body = await req.json()
-	const tags = [body.tag]
+	const tags = [...body.tag]
 	if (tags > 0) {
-		console.log(tags)
+		return console.log(tags)
 	} else {
-		console.log('Finner ikke tags')
+		return console.log('Finner ikke tags')
 	}
 
-	index.saveObject({ objectID: body._id, name: body.name, slug: body.slug })
-	revalidatePath(`/medlem`)
-	revalidatePath(`/medlem/${body.slug}`)
+	// index.saveObject({ objectID: body._id, name: body.name, slug: body.slug })
+	// revalidatePath(`/medlem`)
+	// revalidatePath(`/medlem/${body.slug}`)
 	// return new Response(console.log(obj))
-	return new Response(console.log(body))
+	// return new Response(console.log('ok'))
 }
