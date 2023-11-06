@@ -9,7 +9,7 @@ export async function POST(req) {
 	const body = await req.json()
 	const tags = body.tag
 	if (tags?.length > 0) {
-		return new Response(console.log('det er tags'))
+		return new Response([...tags])
 	} else {
 		return new Response(console.log('ikke tags'))
 	}
