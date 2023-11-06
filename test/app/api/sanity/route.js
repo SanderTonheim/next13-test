@@ -17,7 +17,7 @@ export async function POST(req) {
 		certifications: [body.certifications],
 		slug: body.slug,
 	}
-	index.partialUpdateObject(obj)
+	index.saveObject(obj)
 	// revalidatePath(`/medlem`)
 	revalidatePath(`/medlem/${body.slug}`)
 	// return new Response(console.log(obj))
