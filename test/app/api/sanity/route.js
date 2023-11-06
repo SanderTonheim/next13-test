@@ -8,7 +8,7 @@ export async function POST(req) {
 	const index = client.initIndex('Members')
 	const body = await req.json()
 
-	if (body.tag.length > 0) {
+	if (body.tag > 0) {
 		console.log(body.tag)
 	} else {
 		console.log(body.tag, 'Ikke lang nok')
