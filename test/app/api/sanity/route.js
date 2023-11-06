@@ -10,7 +10,7 @@ export async function POST(req) {
 
 	console.log({ body: body, tag: [...body.tag] })
 
-	index.saveObject({ objectID: body._id, name: body.name, tags: [...body.tag], certifications: [body.certifications], slug: body.slug })
+	index.saveObject({ objectID: body._id, name: body.name, tags: [...body.tag], certifications: [...body.certifications], slug: body.slug })
 	revalidatePath(`/medlem`)
 	revalidatePath(`/medlem/${body.slug}`)
 	// return new Response(console.log(obj))
