@@ -18,7 +18,7 @@ export async function POST(req) {
 		slug: body.slug,
 	}
 	index.saveObject(obj)
-	// revalidatePath(`/medlem`)
+	revalidatePath(`/medlem`)
 	revalidatePath(`/medlem/${body.slug}`)
 	// return new Response(console.log(obj))
 	return new Response(console.log(body))
