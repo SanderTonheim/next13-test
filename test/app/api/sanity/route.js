@@ -7,7 +7,7 @@ export async function POST(req) {
 	const client = algoliasearch('CL6X1N5OU8', 'b5cf6abddecca4efc7e0b6234e818950')
 	const index = client.initIndex('Members')
 	const body = await req.json()
-	const tags = [...body.tag]
+	const tags = [...body.tag] || null
 	if (tags > 0) {
 		return console.log(tags)
 	} else {
