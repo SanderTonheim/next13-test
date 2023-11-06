@@ -9,9 +9,9 @@ export async function POST(req) {
 	const body = await req.json()
 	const tags = [body.tag] || null
 	if (tags > 0) {
-		return console.log(tags)
+		return new Response(console.log('ok'))
 	} else {
-		return console.log('Finner ikke tags')
+		return new Response(console.log('Finner ikke tags'))
 	}
 
 	// index.saveObject({ objectID: body._id, name: body.name, slug: body.slug })
