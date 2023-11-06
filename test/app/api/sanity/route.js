@@ -9,7 +9,7 @@ export async function POST(req) {
 	const body = await req.json()
 	const tags = [body.tag] || null
 	if (tags > 0) {
-		return new Response(console.log('ok'))
+		return new Response(console.log('ok', tags))
 	} else {
 		return new Response(console.log('Finner ikke tags'))
 	}
