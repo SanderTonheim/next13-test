@@ -20,6 +20,7 @@ export default async function ProfilePage({ params }) {
 	if (!post) {
 		return <Error />
 	}
+	console.log(post)
 	const components = {
 		block: {
 			// customizing common block types
@@ -44,23 +45,23 @@ export default async function ProfilePage({ params }) {
 			<section className='flex flex-col gap-6 px-4 md:py-16 md:px-12 lg:gap-[5rem]  xl:w-full xl:max-w-7xl xl:mx-auto'>
 				<div className='CONTENT-CONTAINER flex flex-col items-center gap-4 lg:flex-row-reverse lg:justify-between lg:items-start lg:w-full lg:max-w-7xl'>
 					<Image
-						src={urlFor(post.logo.asset._ref).url()}
+						src={urlFor(post?.logo?.asset?._ref).url()}
 						alt='Logo'
 						height={100}
 						width={250}
 						className='flex'
 					/>
 
-					<section className='Text lg:basis-1/2 flex gap-4 flex-col'>
+					<section className='Text lg:basis-1/2 h-full flex gap-4 flex-col'>
 						<PortableText
-							value={post.richText}
+							value={post?.richText}
 							components={components}
 						/>
 					</section>
 				</div>
 				<div className='md:flex md:w-full md:justify-between'>
-					<section className=' flex flex-col gap-2'>
-						{post.tag < 1 ? ' ' : <Tags list={post.tag} />}
+					<section className='flex flex-col gap-2'>
+						{post.tag < 1 ? '' : <Tags list={post.tag} />}
 						{post.certifications < 1 ? '' : <Certifications list={post.certifications} />}
 						{post.connections && <Connections list={post.connections} />}
 						{post.medlemspraten < 1 ? '' : <MemberTalk link={post.medlemspraten} />}
