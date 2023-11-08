@@ -117,7 +117,8 @@ export const getCompany = async (slug) => {
 			sosialMedia,
 			richText,
 			video,
- 		}`
+ 		}`,
+		{ next: { tags: ['companyData'] } }
 	)
 
 	return data
