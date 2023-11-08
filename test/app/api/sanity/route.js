@@ -1,4 +1,4 @@
-import { revalidatePath } from 'next/cache'
+import { revalidatePath, revalidateTag } from 'next/cache'
 import algoliasearch from 'algoliasearch'
 
 export async function POST(req) {
@@ -8,6 +8,6 @@ export async function POST(req) {
 
 	index.saveObject({ objectID: body._id, name: body.name, tags: body.tag, certifications: body.certifications, slug: body.slug })
 	revalidatePath(`/medlem`)
-	// revalidatePath(`/medlem/${body.slug}`)
+	revalidateTag(companyData)
 	return new Response(console.log(body))
 }
