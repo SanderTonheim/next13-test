@@ -7,7 +7,7 @@ export async function POST(req) {
 	const body = await req.json()
 
 	const add = (body) => {
-		const record = index.saveObject({ objectID: body._id, name: body.name, tags: body.tag, certifications: body.certifications, slug: body.slug }).wait()
+		const record = index.saveObject({ objectID: body._id, name: body.name, tags: body.tag, certifications: body.certifications, connections: body.connections, slug: body.slug }).wait()
 		return record
 	}
 	await add(body)
