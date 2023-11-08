@@ -1,3 +1,5 @@
+'use server'
+
 import { revalidatePath, revalidateTag } from 'next/cache'
 import algoliasearch from 'algoliasearch'
 
@@ -11,7 +13,7 @@ export async function POST(req) {
 		.then(() => {
 			revalidatePath('/medlem')
 			revalidatePath(`/medlem/${body.slug}`)
-			return console.log('updated')
+			console.log('updated')
 		})
 	return new Response(console.log(body))
 }
