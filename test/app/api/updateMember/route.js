@@ -1,5 +1,5 @@
 import algoliasearch from 'algoliasearch'
-import { revalidateTag } from 'next/cache'
+import { revalidatePath, revalidateTag } from 'next/cache'
 
 export async function POST(req) {
 	const client = algoliasearch('CL6X1N5OU8', 'b5cf6abddecca4efc7e0b6234e818950')
@@ -7,6 +7,6 @@ export async function POST(req) {
 	const body = await req.json()
 
 	index.saveObject({ objectID: body._id, name: body.name, tags: body.tag, certifications: body.certifications, slug: body.slug })
-	revalidateTag('companyData')
-	return new Response(console.log(body))
+	revalidatePath(`/medlem/${body.slug}`)
+	return new Response(console.log(body.slug))
 }
