@@ -10,7 +10,7 @@ export async function POST(req) {
 		const record = index.saveObject({ objectID: body._id, name: body.name, tags: body.tag, certifications: body.certifications, slug: body.slug }).wait()
 		return record
 	}
-	await add(body)
+	add(body)
 	revalidatePath('/medlem')
 	return new Response(console.log({ body: body, record: add() }))
 }
