@@ -7,7 +7,11 @@ export async function POST(req) {
 	const body = await req.json()
 
 	index.saveObject({ objectID: body._id, name: body.name, tags: body.tag, certifications: body.certifications, slug: body.slug })
-	await revalidatePath('/medlem')
-	await revalidatePath(`/medlem/${body.slug}`)
+		.wait()
+		.then(() => {
+			revalidatePath('/medlem')
+			revalidatePath(`/medlem/${body.slug}`)
+			return console.log('updated')
+		})
 	return new Response(console.log(body))
 }
