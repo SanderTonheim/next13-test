@@ -1,3 +1,4 @@
+import algoliasearch from 'algoliasearch'
 import { revalidateTag } from 'next/cache'
 
 export async function POST(req) {
