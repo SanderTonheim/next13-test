@@ -5,7 +5,7 @@ export async function POST(req) {
 	const client = algoliasearch('CL6X1N5OU8', 'b5cf6abddecca4efc7e0b6234e818950')
 	const index = client.initIndex('Members')
 	const body = await req.json()
-	const { slug } = await req.json()
+	const slug = body.slug
 	console.log(slug)
 
 	const updateMember = (body) => {
