@@ -12,7 +12,6 @@ export async function POST(req) {
 	}
 	await add(body)
 	revalidatePath('/medlem')
-	revalidatePath(`/medlem/${body.slug}`)
 
 	return new Response(console.log(body))
 }
