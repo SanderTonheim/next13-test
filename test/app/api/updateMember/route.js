@@ -6,7 +6,7 @@ export async function POST(req) {
 	const index = client.initIndex('Members')
 	const body = await req.json()
 
-	index.saveObject({ objectID: body._id, name: body.name, tags: body.tag, certifications: body.certifications, slug: body.slug })
+	index.partialUpdateObject({ objectID: body._id, name: body.name, tags: body.tag, certifications: body.certifications, slug: body.slug })
 	revalidatePath(`/medlem/${body.slug}`)
 	return new Response(console.log(body.slug))
 }
