@@ -11,5 +11,6 @@ export async function POST(req) {
 		return record
 	}
 	await add(body)
-	return new Response(console.log({ body: body, record: add }))
+	revalidatePath('/medlem')
+	return new Response(console.log({ body: body, record: add() }))
 }
