@@ -13,7 +13,7 @@ export async function POST(request) {
 		const record = index.saveObject({ objectID: body._id, name: body.name, tags: body.tag, connections: body.connections, certifications: body.certifications, slug: body.slug }).wait()
 		return record
 	}
-	updateMember(body)
+	await updateMember(body)
 	revalidatePath(`/medlem/${slug}`)
 
 	return new Response(console.log(body))
