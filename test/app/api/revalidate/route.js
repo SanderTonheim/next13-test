@@ -15,11 +15,7 @@ export async function GET(request) {
 	index.saveObject({ objectID: body._id, name: body.name, tags: body.tag, connections: body.connections, certifications: body.certifications, slug: body.slug }).wait()
 	revalidatePath(`/medlem/${body.slug}`)
 
-	return Response.json({
-		revalidated: false,
-		now: Date.now(),
-		message: body,
-	})
+	return Response.json({ message: `${body}` })
 }
 
 // export async function POST(request) {
