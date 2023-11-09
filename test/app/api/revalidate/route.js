@@ -2,10 +2,9 @@ import algoliasearch from 'algoliasearch'
 import { revalidatePath } from 'next/cache'
 
 export async function GET(request) {
-	const path = request.nextUrl.searchParams.get('path')
+	const path = 1
 
-	if (path) {
-		revalidatePath(`/medlem/${slug}`)
+	if (path > 0) {
 		return Response.json({ revalidated: true, now: Date.now() })
 	}
 
