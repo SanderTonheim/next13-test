@@ -22,7 +22,7 @@ export async function POST(request) {
 		return console.log('updated path', slug)
 	}
 
-	await updatePath(body)
+	await updatePath(slug)
 
 	return new Response(console.log(body))
 }
