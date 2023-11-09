@@ -1,7 +1,7 @@
 import algoliasearch from 'algoliasearch'
 export async function GET(request) {
 	const path = request.nextUrl.origin
-	if (path) {
+	if (path.length > 0) {
 		const client = algoliasearch('CL6X1N5OU8', 'b5cf6abddecca4efc7e0b6234e818950')
 		const index = client.initIndex('Members')
 
