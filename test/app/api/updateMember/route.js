@@ -18,9 +18,8 @@ export async function POST(request) {
 
 	async function updatePath(slug) {
 		'use server'
-		console.log('updatePath:', slug)
 		revalidatePath(`/medlem/${slug}`)
-		return console.log('updated path')
+		return console.log('updated path', slug)
 	}
 
 	await updatePath(body)
