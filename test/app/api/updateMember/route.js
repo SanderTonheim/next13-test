@@ -6,7 +6,7 @@ export async function POST(request) {
 	const index = client.initIndex('Members')
 	const body = await request.json()
 	const slug = body.slug
-	const path = request.nextUrl
+	const path = request.nextUrl.origin
 	console.log('path:', path)
 
 	const updateMember = (body) => {
