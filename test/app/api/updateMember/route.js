@@ -1,6 +1,5 @@
-import { revalidatePath } from 'next/cache'
 import algoliasearch from 'algoliasearch'
-import { NextResponse } from 'next/server'
+import { UpdatePath } from '@/lib/updateAction'
 
 export async function POST(request) {
 	const client = algoliasearch('CL6X1N5OU8', 'b5cf6abddecca4efc7e0b6234e818950')
@@ -16,13 +15,7 @@ export async function POST(request) {
 	}
 	await updateMember(body)
 
-	async function updatePath(slug) {
-		'use server'
-		revalidatePath(`/medlem/${slug}`)
-		return console.log('updated path', slug)
-	}
-
-	await updatePath(slug)
+	await UpdatePath(slug)
 
 	return new Response(console.log(body))
 }
