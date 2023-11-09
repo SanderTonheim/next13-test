@@ -8,7 +8,7 @@ export async function POST(request) {
 	const slug = body.slug
 	const path = request.nextUrl.origin
 	console.log('path:', path)
-	console.log(typeof slug)
+	console.log(typeof `test ${slug}`)
 
 	const updateMember = (body) => {
 		const record = index.saveObject({ objectID: body._id, name: body.name, tags: body.tag, connections: body.connections, certifications: body.certifications, slug: body.slug }).wait()
