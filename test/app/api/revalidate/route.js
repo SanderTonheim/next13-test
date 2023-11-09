@@ -1,20 +1,4 @@
-// import algoliasearch from 'algoliasearch'
-
-// export async function POST(request) {
-
-// 	const slug = body.slug
-
-// 	const updateMember = (body) => {
-// 		const record = index.saveObject({ objectID: body._id, name: body.name, tags: body.tag, connections: body.connections, certifications: body.certifications, slug: body.slug }).wait()
-// 		return record
-// 	}
-// 	await updateMember(body)
-
-// 	await UpdatePath(slug)
-
-// 	return new Response(console.log(body))
-// }
-
+import algoliasearch from 'algoliasearch'
 export async function GET(request) {
 	const client = algoliasearch('CL6X1N5OU8', 'b5cf6abddecca4efc7e0b6234e818950')
 	const index = client.initIndex('Members')
@@ -33,3 +17,18 @@ export async function GET(request) {
 		})
 	}
 }
+
+// export async function POST(request) {
+
+// 	const slug = body.slug
+
+// 	const updateMember = (body) => {
+// 		const record = index.saveObject({ objectID: body._id, name: body.name, tags: body.tag, connections: body.connections, certifications: body.certifications, slug: body.slug }).wait()
+// 		return record
+// 	}
+// 	await updateMember(body)
+
+// 	await UpdatePath(slug)
+
+// 	return new Response(console.log(body))
+// }
