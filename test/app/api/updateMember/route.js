@@ -16,5 +16,5 @@ export async function POST(request) {
 	await updateMember(body)
 	revalidatePath(`/medlem/${slug}`)
 
-	return new Response.json({ body })
+	return Response.json({ body })
 }
