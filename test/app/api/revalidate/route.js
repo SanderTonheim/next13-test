@@ -1,20 +1,18 @@
-import algoliasearch from 'algoliasearch'
+// import algoliasearch from 'algoliasearch'
+import { revalidatePath } from 'next/cache'
+
 export async function GET(request) {
-	const path = request.nextUrl.origin
-	if (path.length > 0) {
-		const client = algoliasearch('CL6X1N5OU8', 'b5cf6abddecca4efc7e0b6234e818950')
-		const index = client.initIndex('Members')
+	const path = request.nextUrl.searchParams.get('path')
 
-		const body = await request.json()
-		console.log(request)
-		console.log(body)
-
-		// index.saveObject({ objectID: body._id, name: body.name, tags: body.tag, connections: body.connections, certifications: body.certifications, slug: body.slug }).wait()
+	if (path) {
+		revalidatePath(path)
 		return Response.json({ revalidated: true, now: Date.now() })
 	}
+
 	return Response.json({
 		revalidated: false,
-		path: path,
+		now: Date.now(),
+		message: path,
 	})
 }
 
