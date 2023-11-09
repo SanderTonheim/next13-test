@@ -1,5 +1,4 @@
-import algoliasearch from 'algoliasearch'
-import { UpdatePath } from '@/lib/updateAction'
+// import algoliasearch from 'algoliasearch'
 
 // export async function POST(request) {
 // 	const client = algoliasearch('CL6X1N5OU8', 'b5cf6abddecca4efc7e0b6234e818950')
