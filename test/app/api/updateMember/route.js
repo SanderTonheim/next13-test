@@ -6,15 +6,15 @@ export async function POST(request) {
 	const index = client.initIndex('Members')
 	const body = await request.json()
 	const slug = body.slug
-	const path = request.nextUrl.searchParams.get('path')
+	const path = request
 	console.log('path:', path)
 
 	const updateMember = (body) => {
 		const record = index.saveObject({ objectID: body._id, name: body.name, tags: body.tag, connections: body.connections, certifications: body.certifications, slug: body.slug }).wait()
 		return record
 	}
-	await updateMember(body)
-	await revalidatePath(`/medlem/${slug}`)
+	updateMember(body)
+	revalidatePath(`/medlem/${slug}`)
 
 	return new Response(console.log(body))
 }
